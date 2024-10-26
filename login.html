@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* Style for the error message */
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <br><br>
+        <button type="submit" id="loginButton">Login</button>
+        <p id="errorMessage" class="error-message" style="display: none;">Invalid username or password. Please try again.</p>
+    </form>
+
+    <script>
+        const validUsername = "user123";
+        const validPassword = "password123";
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("errorMessage");
+
+            if (username === validUsername && password === validPassword) {
+                errorMessage.style.display = "none";
+                alert("Login successful!");
+            } else {
+                errorMessage.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
